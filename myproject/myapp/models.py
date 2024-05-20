@@ -4,10 +4,12 @@ from django.utils import timezone
 
 # create a class name of Comment 
 class Comment(models.Model):
-    text= models.TextField()
-    author=models.CharField(max_length=30)
-    created_at=models.DateTimeField(default = timezone.now)
+    title= models.CharField(max_length=30)
+    code= models.CharField(max_length=50)
+    linenos= models.BooleanField(default=False)
+    language= models.CharField(max_length=20)
+    style= models.CharField(max_length=20)
     
     # this method show in admin panel 
     def __str__(self):
-        return self.author
+        return self.title
